@@ -2,16 +2,16 @@ package main
 
 /**
 testing go with the golang tour https://tour.golang.org/
- */
+*/
 
 import (
 	"fmt"
-	"time"
-	"unicode/utf8"
 	"os"
-	"strings"
 	"regexp"
 	"sort"
+	"strings"
+	"time"
+	"unicode/utf8"
 )
 
 func swap(s1, s2 string) (string, string) {
@@ -109,23 +109,22 @@ func readTextFile(filename string) string {
 }
 
 func main() {
-	// picked a 
+	// picked a
 	const inputFilename string = "./data/LES MISÉRABLES -- Tome I -- FANTINE.utf8_txt"
 	var text = readTextFile(inputFilename)
 	lines := strings.Split(text, "\n")
 	fmt.Printf("The text is %v bytes long\n", len(text))
 	fmt.Printf("and have %v lines\n\n\n", len(lines))
 
-
-	words1 :=WordCount(text)
-	fmt.Println(words1)
+	words1 := WordCount(text)
+	//fmt.Println(words1)
 	sortedWords1 := make([]string, 0, len(words1))
 	for word := range words1 {
 		sortedWords1 = append(sortedWords1, word)
 	}
 	sort.Strings(sortedWords1) //sort by key
-	fmt.Println(sortedWords1)
-	fmt.Println(len(words1))
+	//fmt.Println(sortedWords1)
+	//fmt.Println(len(words1))
 
 	words2 := WordCount2(text)
 	fmt.Println(words2)
@@ -134,8 +133,7 @@ func main() {
 		sortedWords2 = append(sortedWords2, word)
 	}
 	sort.Strings(sortedWords2) //sort by key
-	fmt.Println(sortedWords2)
-	fmt.Println(len(words2), len(sortedWords2))
-
+	//fmt.Println(sortedWords2)
+	fmt.Println(len(words2), len(words1))
 
 }
